@@ -1,0 +1,51 @@
+
+    <!-- main menu-->
+    <div data-scroll-to-active="true" class="main-menu menu-fixed menu-dark menu-accordion menu-shadow">
+      <!-- main menu header-->
+      <div class="main-menu-header">
+        <input type="text" placeholder="Search" class="menu-search form-control round"/>
+      </div>
+      <!-- / main menu header-->
+      <!-- main menu content-->
+      <div class="main-menu-content">
+        <ul id="main-menu-navigation" data-menu="menu-navigation" class="navigation navigation-main">
+          <li class=" nav-item"><a href="<%=  dashboard_path %>"><i class="fa fa-tachometer" aria-hidden="true"></i><span data-i18n="nav.form_layouts.form_layout_basic" class="menu-title">Dashboard</span></a>
+          </li>
+          <li class=" nav-item"><a href="<%=  job_cards_path %>"><i class="fa fa-check-square-o" aria-hidden="true"></i><span data-i18n="nav.changelog.main" class="menu-title">Jobcards</span><!-- <span class="tag tag tag-pill tag-danger float-xs-right"><-%=JobCard.where(jobcard_status:1).count%></span> --></a>
+          </li>
+          <li class=" nav-item"><a href="<%= inventory_path%>"><i class="fa fa-database" aria-hidden="true"></i><span data-i18n="nav.form_layouts.form_layout_basic" class="menu-title">Inventory</span></a>
+          </li>
+          <li class=" nav-item"><a href="#"><i class="fa fa-table" aria-hidden="true"></i><span data-i18n="nav.page_layouts.main" class="menu-title">Masters</span></a>
+            <ul class="menu-content">
+              <li><a href="<%=  customers_path %>" data-i18n="nav.page_layouts.1_column" class="menu-item"><i class="fa fa-users" aria-hidden="true"></i><span data-i18n="nav.page_layouts.main" class="menu-title">Customers</span></a>
+              </li>
+              <li><a href="<%= customer_vehicles_path %>" data-i18n="nav.page_layouts.2_columns" class="menu-item"><i class="fa fa-truck" aria-hidden="true"></i><span data-i18n="nav.page_layouts.main" class="menu-title">Vehicles</span></a>
+              </li>
+              <li><a href="<%= users_path%>" data-i18n="nav.page_layouts.3_columns" class="menu-item"><i class="fa fa-id-card" aria-hidden="true"></i><span data-i18n="nav.page_layouts.main" class="menu-title">Staff</span></a>
+              </li>
+              <li><a href="<%= purchase_logs_path%>" data-i18n="nav.page_layouts.3_columns" class="menu-item"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span data-i18n="nav.page_layouts.main" class="menu-title">Purchase Logs</span></a>
+              </li>
+              <!--
+              <li><a href="<-%= service_bills_path%>" data-i18n="nav.page_layouts.3_columns" class="menu-item"><i class="fa fa-pencil-square-o " aria-hidden="true"></i><span data-i18n="nav.page_layouts.main" class="menu-title">Service Bills</span></a>
+>>>>>>> 21/09/2017 eve commit for demo
+              </li>
+              <li><a href="<-%= spare_bills_path%>" data-i18n="nav.page_layouts.3_columns" class="menu-item"><i class="fa fa-pencil-square-o " aria-hidden="true"></i><span data-i18n="nav.page_layouts.main" class="menu-title">Spare Bills</span></a>
+              </li>
+              <li><a href="<-%= spare_prices_path%>" data-i18n="nav.page_layouts.3_columns" class="menu-item"><i class="fa fa-money" aria-hidden="true"></i><span data-i18n="nav.page_layouts.main" class="menu-title">Spare Price</span></a>
+              </li> -->
+              <li><a href="<%= spares_path%>" data-i18n="nav.page_layouts.3_columns" class="menu-item"><i class="fa fa-cog" aria-hidden="true"> </i><span data-i18n="nav.page_layouts.main" class="menu-title">Spares</span></a>
+              </li>
+              <li><a href="<%= spares_categories_path%>" data-i18n="nav.page_layouts.3_columns" class="menu-item"><i class="fa fa-link" aria-hidden="true"></i><span data-i18n="nav.page_layouts.main" class="menu-title">Spares Categories</span></a>
+              </li>
+              <li><a href="<%= units_path%>" data-i18n="nav.page_layouts.3_columns" class="menu-item"><i class="fa fa-thermometer-empty" aria-hidden="true"></i><span data-i18n="nav.page_layouts.main" class="menu-title">Units</span></a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <!-- /main menu content-->
+      <!-- main menu footer-->
+      <!-- include includes/menu-footer-->
+      <!-- main menu footer-->
+    </div>
+    <!-- / main menu-->

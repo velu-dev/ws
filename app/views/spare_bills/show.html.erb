@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Job card:</strong>
+  <%= @spare_bill.job_card %>
+</p>
+
+<p>
+  <strong>Spare:</strong>
+  <%= @spare_bill.spare %>
+</p>
+
+<p>
+  <strong>Cost per unit:</strong>
+  <%= @spare_bill.cost_per_unit %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @spare_bill.quantity %>
+</p>
+
+<p>
+  <strong>Sgst:</strong>
+  <%= @spare_bill.sgst %>
+</p>
+
+<p>
+  <strong>Cgst:</strong>
+  <%= @spare_bill.cgst %>
+</p>
+
+<p>
+  <strong>Sub total:</strong>
+  <%= @spare_bill.sub_total %>
+</p>
+
+<%= link_to 'Edit', edit_spare_bill_path(@spare_bill) %> |
+<%= link_to 'Back', spare_bills_path %>

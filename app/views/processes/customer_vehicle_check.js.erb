@@ -1,0 +1,15 @@
+         <%unless @customer_vehicle.nil? %>
+          $("#job_card_vehicle_model").val("<%= @customer_vehicle.model%>");
+          $("#job_card_vehicle_name").val("<%= @customer_vehicle.vehicle_name%>");
+          $("#job_card_vehicle_brand").val("<%= @customer_vehicle.brand%>");
+          $("#job_card_vehicle_year_of_manufacture").val("<%= @customer_vehicle.year_of_manufacture%>");
+          $("#job_card_vehicle_vin_or_chassis_number").val("<%= @customer_vehicle.vin_or_chassis_number%>");
+          $(".job_card_vehicle").attr('readonly', true);
+          <%else%>
+          $("#job_card_vehicle_model").val("");
+          $("#job_card_vehicle_name").val("");
+          $("#job_card_vehicle_brand").val("");
+          $("#job_card_vehicle_year_of_manufacture").val("");
+          $("#job_card_vehicle_vin_or_chassis_number").val("");
+          $(".job_card_vehicle").attr('readonly', false);
+          <%end%>

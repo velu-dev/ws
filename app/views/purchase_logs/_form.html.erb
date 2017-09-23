@@ -1,0 +1,110 @@
+ <!-- Selct2 CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" /> 
+    <!-- End Select2 -->
+
+<%= form_with(model: purchase_log, local: true, class: "form") do |form| %>
+              <div class="form-body">
+                <!-- <h4 class="form-section"><i class="icon-eye6"></i> Purchase form</h4> -->
+                <div class="row">
+                  <div class="col-md-2">
+                  <label for="userinput1">Item</label>
+                  </div>
+                  <div class="col-md-2">
+                  <label for="userinput1">Cost Per Unit</label>
+                  </div>
+                  <div class="col-md-2">
+                  <label for="userinput1">Qty</label>
+                  </div>
+                  <div class="col-md-2">
+                  <label for="userinput1">SGST</label>
+                  </div>
+                  <div class="col-md-2">
+                  <label for="userinput1">CGST</label>
+                  </div>
+                  <div class="col-md-2">
+                  <label for="userinput1">Total Cost</label>
+                  </div>
+                </div>
+<!-- <script type="text/javascript">
+$('#item_name').select2({
+  allowClear: true,
+  escapeMarkup: function (markup) { return markup; },
+  placeholder: "Item Name",
+  language: {
+    noResults: function () {
+      
+    }
+  }
+});
+</script> -->
+<div class="input_fields_wrap">
+    
+                <div class="row">
+                  <div class="col-md-2">
+                  <%= select_tag "inventory[][spare_id]" ,options_from_collection_for_select(Spare.all, "id", "item_name"), id: "item_name", required: :true, class: "form-control drop", include_blank: true %>
+                  </div>
+                  <div class="col-md-2">
+                  <input type="text" id="cost_per_unit" class="form-control border-primary" placeholder="Name" name="inventory[][cost_per_unit]" required="true">
+                  </div>
+                  <div class="col-md-2">
+                  <input type="text" id="userinput1" class="form-control border-primary" placeholder="quantity" name="inventory[][quantity]" required="true">
+                  </div>
+                  <div class="col-md-2">
+                  <input type="text" id="userinput1" class="form-control border-primary" placeholder="sgst" name="inventory[][sgst]" required="true">
+                  </div>
+                  <div class="col-md-2">
+                  <input type="text" id="userinput1" class="form-control border-primary" placeholder="cgst" name="inventory[][cgst]" required="true">
+                  </div>
+                  <div class="col-md-2">
+                  <input type="text" id="userinput1" class="form-control border-primary" placeholder="Total Cost" name="inventory[][total_cost]" required="true">
+                  </div>
+                </div><br>
+              </div>
+                <div class="form-group">
+                  <label for="purchased_by">Purchased By</label>
+                   <%= select_tag "user_id" ,options_from_collection_for_select(User.all, "id", "first_name"), id: "purchased_by", class: "form-control", include_blank: true ,required: :true%>       
+                </div>
+          </div>
+              <div class="form-actions right">
+                <button class="add_field_button pull_right btn btn-success">Add More Fields</button>
+                
+                <%= form.submit "Save", class: "btn btn-primary"%>
+              </div>
+  
+<% end %>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script>
+  $(document).ready(function() {    
+    var max_fields      = 10; //maximum input boxes allowed
+    var wrapper         = $(".input_fields_wrap"); //Fields wrapper
+    var add_button      = $(".add_field_button"); //Add button ID
+   
+    var x = 1; //initlal text box count
+    $(add_button).click(function(e){ //on add input button click
+        e.preventDefault();
+        if(x < max_fields){ //max input box allowed
+            x++; //text box increment
+            $(wrapper).append('<div class="row"><div class="col-md-2"><%= select_tag "inventory[][spare_id]" ,options_from_collection_for_select(User.all, "id", "id"), id: "id", class: "form-control" %></div><div class="col-md-2"><input type="text" id="cost_per_unit" class="form-control border-primary" placeholder="Name" name="inventory[][cost_per_unit]" required></div><div class="col-md-2"><input type="text" id="userinput1" class="form-control border-primary" placeholder="quantity" name="inventory[][quantity]" required></div><div class="col-md-2"><input type="text" id="userinput1" class="form-control border-primary" placeholder="Sgst" name="inventory[][sgst]" required></div><div class="col-md-2"><input type="text" id="userinput1" class="form-control border-primary" placeholder="Cgst" name="inventory[][cgst]" required></div> <div class="col-md-2"><input type="text" id="userinput1" class="form-control border-primary" placeholder="Total Cost" name="inventory[][total_cost]" required></div></div><br>'); //add input box
+        }
+    });
+    $(wrapper).on("click",remove, function(e){ //user click on remove text
+        e.preventDefault(); $(this).parent('div').remove(); x--;
+    })
+});
+</script>
+<!--select2 Script -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+    <!-- End select2 Script -->
+<script type="text/javascript">
+$('#purchased_by').select2({
+  allowClear: true,
+  escapeMarkup: function (markup) { return markup; },
+  placeholder: "Purchased_By",
+  language: {
+    noResults: function () {
+      
+    }
+  }
+});
+</script>

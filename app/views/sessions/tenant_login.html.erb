@@ -1,0 +1,51 @@
+<!-- <div class="container">
+  <div class="col-sm-6 col-sm-offset-3 main" >
+    <div class="col-sm-6  left-side" >
+	    <div class="card card-user">
+	      <div class="image">
+	        <img src="assets/silver.jpg" alt="..."/>
+	      </div>
+	      <div class="content">
+          <div class="author">
+            <img class="avatar" src="/assets/thoughtbees.png" alt="..."/>
+            <h3 class="title">thoughtbees<br />
+            </h3>
+          </div>
+	      </div>
+	    </div> 
+    </div>
+    <-%= form_tag sessions_tenant_login_process_path do %>
+	    <div class="col-sm-6 right-side">
+		    <h4>Cloud ERP</h4>
+		    <br>
+		    <-%= notice.html_safe if notice %>
+		    <div class="form">
+		      <div class="form-group">
+		        <div class="md-form sm-form">
+		        	<i class="fa fa-building-o prefix grey-text"></i>
+		        	
+		        	<-%= text_field_tag "tenant_login_name", "",id: "defaultForm-name",class: "form-control",required: "" %>
+		        	<label for="defaultForm-name" class="control-label">Organization Name</label></div>
+		    		</div>
+						<br>
+						<br>
+		        <div class="text-sm-center">
+		        <-%= submit_tag "OK", class: "btn btn-info btn-lg",style: "border-radius:18px;" %>
+		        </div>
+		      </div>
+		    </div>
+		  </div>
+		<-% end %>
+  </div>
+</div>
+<style type="text/css">
+.btn{
+	background-color: #68B3C8!important;
+}
+</style>
+ -->
+<%= form_tag sessions_tenant_login_process_path do %>
+Organization Name
+<%= text_field_tag "tenant_login_name", "",required: true%>
+<%= submit_tag "OK" %>
+<% end %>

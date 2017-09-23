@@ -1,0 +1,47 @@
+<%= form_with(model: service_bill, local: true) do |form| %>
+  <% if service_bill.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(service_bill.errors.count, "error") %> prohibited this service_bill from being saved:</h2>
+
+      <ul>
+      <% service_bill.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :job_card_id %>
+    <%= form.text_field :job_card_id, id: :service_bill_job_card_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :particular_id %>
+    <%= form.text_field :particular_id, id: :service_bill_particular_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :service_name %>
+    <%= form.text_field :service_name, id: :service_bill_service_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description, id: :service_bill_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id, id: :service_bill_user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cost %>
+    <%= form.text_field :cost, id: :service_bill_cost %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

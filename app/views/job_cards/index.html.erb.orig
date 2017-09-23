@@ -1,0 +1,82 @@
+<div class="card-header">
+<h3>Job Card 
+<span class="job_card_status_filter" style="padding: 1%;font-size: medium;"><i class="fa fa-filter" aria-hidden="true"></i>&nbsp;&nbsp;
+  <a class="nav-link filter" onclick="cll('');">All</a>&nbsp;|
+  <a class="nav-link filter" onclick="cll('Service Pending');">Service Pending</a>&nbsp;|
+  <a class="nav-link filter" onclick="cll('Delivery Pending');">Delivery Pending</a>&nbsp;|
+  <a class="nav-link filter" onclick="cll('Completed');">Completed</a>
+  </span>
+
+
+<!--%= link_to "New Job Card", new_job_card_path, class: "btn btn-success pull-right" %-->
+
+              <button id="new_job_card" class="btn btn-primary pull-right" onclick="click_fun();">New Job Card&nbsp;&nbsp;<i class="fa fa-plus"></i></button>
+
+
+</h3>
+</div>
+ <div class="card-block">
+
+<<<<<<< HEAD
+<table id="jobcard" class="display nowrap table table-striped table-bordered" cellspacing="0" width="100%">
+=======
+<table id="jobcard_index" class="display nowrap table table-striped table-bordered table-responsive" cellspacing="0" width="100%">
+>>>>>>> 21/09/2017 eve commit for demo
+  <thead>
+    <tr>
+        <th>Customer</th>
+        <th>Customer vehicle</th>
+        <th>Handover person</th>
+        <th>Contact number</th>
+        <th>Jobcard status</th>
+        <th>Fuel level</th>
+        <th>Km traveled</th>
+        <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @job_cards.each do |job_card| %>
+        <tr>
+          <td><%= job_card.customer.customername %></td>
+          <td><%= job_card.customer_vehicle.vehicle_name %></td>
+          <td><%= job_card.handover_person %></td>
+          <td><%= job_card.contact_number %></td>
+          <td><%= job_card.jobcard_status.titleize %></td>
+          <td><%= job_card.fuel_level %></td>
+          <td><%= job_card.km_traveled %></td>
+          <td><%= link_to '', job_card,class: "fa fa-eye btn btn-primary btn-sm",data:{toggle: "tooltip"}, title: "View" %>
+          <%= link_to '', edit_job_card_path(job_card),class: "fa fa-pencil btn btn-warning btn-sm",data:{toggle: "tooltip"}, title: "Edit" %>
+          <!--%= link_to '', job_card, method: :delete, data: { confirm: 'Are you sure?',toggle: "tooltip"},class: "fa fa-trash btn btn-danger btn-sm", title: "Delete"  %--></td>
+          <td></td>
+        </tr>
+      <% end %>    
+  </tbody>
+</table>
+</div>
+  <script type="text/javascript">
+    function click_fun() {
+          window.location = "/new_job_card"
+     } 
+    </script>
+<script type="text/javascript">
+ $(document).ready(function() {
+        var oTable;
+      oTable = $('#jobcard_index').dataTable();
+
+/*      $('#company').change( function() { 
+            oTable.fnFilter( $(this).val(), 1 ); 
+       });
+      $('#cust').change( function() { 
+            oTable.fnFilter( $(this).val(), 2 ); 
+       });
+      $('#inv_num').keyup( function() { 
+            oTable.fnFilter( $(this).val(), 0 ); 
+       });
+*/
+});
+
+function cll(vl){
+  var oTable = $('#jobcard_index').dataTable();
+  oTable.fnFilter( vl, 4 ); 
+}
+</script>

@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Job card:</strong>
+  <%= @service_bill.job_card %>
+</p>
+
+<p>
+  <strong>Particular:</strong>
+  <%= @service_bill.particular %>
+</p>
+
+<p>
+  <strong>Service name:</strong>
+  <%= @service_bill.service_name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @service_bill.description %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @service_bill.user %>
+</p>
+
+<p>
+  <strong>Cost:</strong>
+  <%= @service_bill.cost %>
+</p>
+
+<%= link_to 'Edit', edit_service_bill_path(@service_bill) %> |
+<%= link_to 'Back', service_bills_path %>

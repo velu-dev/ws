@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+<div class="card-header">
+<h1>Service Bills</h1>
+</div>
+<div class="card-block">
+<table id="service_bill_index" class="display nowrap table-striped table-bordered" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <th>Job card</th>
+      <th>Particular</th>
+      <th>Service name</th>
+      <th>Description</th>
+      <th>User</th>
+      <th>Cost</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @service_bills.each do |service_bill| %>
+      <tr>
+        <td><%= service_bill.job_card %></td>
+        <td><%= service_bill.particular %></td>
+        <td><%= service_bill.service_name %></td>
+        <td><%= service_bill.description %></td>
+        <td><%= service_bill.user %></td>
+        <td><%= service_bill.cost %></td>
+        <td><!--%= link_to '<i class="fa fa-eye"></i>'.html_safe, service_bill, class: "btn btn-primary btn-sm",data:{toggle: "tooltip"}, title: "View" %-->
+        <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_service_bill_path(service_bill),class: "btn btn-warning btn-sm",data:{toggle: "tooltip"}, title: "Edit" %>
+        <%= link_to '<i class="fa fa-trash"></i>'.html_safe, service_bill, method: :delete, data: { confirm: 'Are you sure?',toggle: "tooltip"},class: "btn btn-danger btn-sm", title: "Delete" %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<br>
+
+<%= link_to 'New Service Bill', new_service_bill_path %>
+
+
+
+<!-- <script type="text/javascript">
+      $(document).ready(function() {
+      $('#service_bill').DataTable();
+      } );
+
+    </script> -->

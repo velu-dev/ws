@@ -1,0 +1,58 @@
+<div class="card">
+  <h3 class="card-header">Job Card
+   <%= link_to 'Back', job_cards_path, class: "pull-right" %>
+  </h3>
+  <div class="card-block">
+  <div class="form-body">
+                <h4 class="form-section"><i class="icon-eye6"></i> <%= @job_card.jobcard_status %></h4>
+                <div class="row">
+                  <div class="col-md-4" style="text-align: center;">
+                    
+                      <label for="userinput1" style="float: left;">Customer Name</label>
+                      <br>
+                      <%= @job_card.customer.customername%>
+                    
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="userinput2">Rsgistration Number</label>
+                      <%= @job_card.customer_vehicle.registration_number %>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="userinput2">VIN</label>
+                      <%= @job_card.customer_vehicle.vin_or_chassis_number %>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label for="userinput1">Handover person</label>
+                        <%= @job_card.handover_person %>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label for="userinput2">Contact number</label>
+                      <%= @job_card.contact_number %>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-group">
+                      <label for="userinput2">Fuel level</label>
+                      <%= @job_card.fuel_level %>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-group">
+                      <label for="userinput2">Km traveled</label>
+                      <%= @job_card.km_traveled %>
+                    </div>
+                  </div>
+                </div>
+  </div>
+</div>
+</div>
+

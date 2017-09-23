@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  job_card: one
+  spare: one
+  cost_per_unit: 1.5
+  quantity: MyString
+  sgst: 1.5
+  cgst: 1.5
+  sub_total: 1.5
+
+two:
+  job_card: two
+  spare: two
+  cost_per_unit: 1.5
+  quantity: MyString
+  sgst: 1.5
+  cgst: 1.5
+  sub_total: 1.5

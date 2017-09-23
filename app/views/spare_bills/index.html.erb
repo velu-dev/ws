@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+<div class="card-header">
+<h1>Spare Bills</h1>
+</div>
+<div class="card-block">
+<table id="spare_bill_index" class="display nowrap table-striped table-bordered" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <th>Job card</th>
+      <th>Spare</th>
+      <th>Cost per unit</th>
+      <th>Quantity</th>
+      <th>Sgst</th>
+      <th>Cgst</th>
+      <th>Sub total</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @spare_bills.each do |spare_bill| %>
+      <tr>
+        <td><%= spare_bill.job_card %></td>
+        <td><%= spare_bill.spare %></td>
+        <td><%= spare_bill.cost_per_unit %></td>
+        <td><%= spare_bill.quantity %></td>
+        <td><%= spare_bill.sgst %></td>
+        <td><%= spare_bill.cgst %></td>
+        <td><%= spare_bill.sub_total %></td>
+        <td><!--%= link_to '<i class="fa fa-eye"></i>'.html_safe, spare_bill, class: "btn btn-primary btn-sm",data:{toggle: "tooltip"}, title: "View" %-->
+        <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_spare_bill_path(spare_bill),class: "btn btn-warning btn-sm",data:{toggle: "tooltip"}, title: "Edit" %>
+        <%= link_to '<i class="fa fa-trash"></i>'.html_safe, spare_bill, method: :delete, data: { confirm: 'Are you sure?',toggle: "tooltip"},class: "btn btn-danger btn-sm", title: "Delete" %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<br>
+
+<%= link_to 'New Spare Bill', new_spare_bill_path %>
+
+
+<!-- <script type="text/javascript">
+      $(document).ready(function() {
+      $('#spare_bill').DataTable();
+      } );
+
+    </script> -->

@@ -1,0 +1,52 @@
+<%= form_with(model: spare_bill, local: true) do |form| %>
+  <% if spare_bill.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(spare_bill.errors.count, "error") %> prohibited this spare_bill from being saved:</h2>
+
+      <ul>
+      <% spare_bill.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :job_card_id %>
+    <%= form.text_field :job_card_id, id: :spare_bill_job_card_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :spare_id %>
+    <%= form.text_field :spare_id, id: :spare_bill_spare_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cost_per_unit %>
+    <%= form.text_field :cost_per_unit, id: :spare_bill_cost_per_unit %>
+  </div>
+
+  <div class="field">
+    <%= form.label :quantity %>
+    <%= form.text_field :quantity, id: :spare_bill_quantity %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sgst %>
+    <%= form.text_field :sgst, id: :spare_bill_sgst %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cgst %>
+    <%= form.text_field :cgst, id: :spare_bill_cgst %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sub_total %>
+    <%= form.text_field :sub_total, id: :spare_bill_sub_total %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

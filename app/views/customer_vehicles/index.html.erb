@@ -1,0 +1,39 @@
+<div class="card-header">
+<h3> Customer Vehicles
+<%= link_to 'New Customer Vehicle', new_customer_vehicle_path, class: "btn btn-primary pull-right"%>
+</h3>
+</div>
+ <div class="card-block">
+  <table id="customer_vehicle_index" class="table display nowrap table-striped table-bordered" cellspacing="0" width="100%">
+    <thead>
+      <tr>
+        <th>Customer</th>
+        <th>Vehicle name</th>
+        <th>Brand</th>
+        <th>Model</th>
+        <th>Registration number</th>
+        <th>Vin or chassis number</th>
+        <th>Year of manufacture</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @customer_vehicles.each do |customer_vehicle| %>
+        <tr>
+          <td><%= customer_vehicle.customer.customername %></td>
+          <td><%= customer_vehicle.vehicle_name %></td>
+          <td><%= customer_vehicle.brand %></td>
+          <td><%= customer_vehicle.model %></td>
+          <td><%= customer_vehicle.registration_number %></td>
+          <td><%= customer_vehicle.vin_or_chassis_number %></td>
+          <td><%= customer_vehicle.year_of_manufacture %></td>
+          <td><%= link_to '<i class="fa fa-eye"></i>'.html_safe, customer_vehicle,class: "btn-primary btn-sm",data:{toggle: "tooltip"}, title: "View" %>
+          <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_customer_vehicle_path(customer_vehicle),class: "btn btn-warning btn-sm",data:{toggle: "tooltip"}, title: "Edit" %>
+          <%= link_to '<i class="fa fa-trash"></i>'.html_safe, customer_vehicle, method: :delete, data: { confirm: 'Are you sure?',toggle: "tooltip"}, class: "btn btn-danger btn-sm", title: "Delete" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+

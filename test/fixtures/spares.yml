@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  unit: one
+  spares_category: one
+  part_number: MyString
+  item_name: MyString
+  description: MyString
+
+two:
+  unit: two
+  spares_category: two
+  part_number: MyString
+  item_name: MyString
+  description: MyString

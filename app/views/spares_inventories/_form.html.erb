@@ -1,0 +1,56 @@
+<%= form_with(model: spares_inventory, local: true) do |form| %>
+  <% if spares_inventory.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(spares_inventory.errors.count, "error") %> prohibited this spares_inventory from being saved:</h2>
+
+      <ul>
+      <% spares_inventory.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="row">
+  <div class="col-md-1">
+    <%= form.label :spare_category %>
+    <%= form.text_field :spare_id, id: :spares_spares_category_id, class: "form-control" %>
+  </div>
+
+  <div class="col-md-2">
+    
+    <label for="spares_part_number">Part Number</label>
+    <!--%= form.text_field :part_number, id: :spares_part_number, class: "form-control" %-->
+    <%= select_tag "spares_inventory[][spares[part_number]]" ,options_from_collection_for_select(Spare.all, "id", "part_number"), id: "part_number", class: "form-control", include_blank: true %>
+
+              
+  </div>
+
+  <div class="col-md-1">
+    <%= form.label :itemname %>
+    <%= form.text_field :spare, id: :spares_inventory_spare,required: :true, class: "form-control" %>
+  </div>
+  <div class="col-md-1">
+    <%= form.label :rate %>
+    <%= form.text_field :cost_per_unit, id: :purchase_logs_cost_per_unit, required: :true, class: "form-control" %>
+  </div>
+  <div class="col-md-1">
+    <%= form.label :sgst %>
+    <%= form.text_field :sgst, id: :purchase_logs_sgst, required: :true,  class: "form-control" %>
+  </div>
+  <div class="col-md-1">
+    <%= form.label :cgst %>
+    <%= form.text_field :cgst, id: :purchase_logs_cgst, required: :true,  class: "form-control" %>
+  </div>
+  <div class="col-md-2">
+    <%= form.label :quantity %>
+    <%= form.text_field :quantity, id: :purchase_logs_quantity, required: :true,  class: "form-control" %>
+  </div>
+  <div class="col-md-2">
+    <%= form.label :net_amount %>
+    <%= form.text_field :total_cost, id: :purchase_logs_total_cost, required: :true,  class: "form-control" %>
+  </div>
+</div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

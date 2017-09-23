@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+<div class="card-header">
+<h1>Spare Prices</h1>
+</div>
+ <div class="card-block">
+<table id="spare_price_index" class="display nowrap table-bordered table-stripped" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <th>Spare</th>
+      <th>Actual price per unit</th>
+      <th>Sales price per unit</th>
+      <th>Sgst</th>
+      <th>Cgst</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @spare_prices.each do |spare_price| %>
+      <tr>
+        <td><%= spare_price.spare %></td>
+        <td><%= spare_price.actual_price_per_unit %></td>
+        <td><%= spare_price.sales_price_per_unit %></td>
+        <td><%= spare_price.sgst %></td>
+        <td><%= spare_price.cgst %></td>
+        <td><!--%= link_to '<i class="fa fa-eye"></i>'.html_safe, spare_price, class: "btn btn-primary btn-sm",data:{toggle: "tooltip"}, title: "View" %-->
+        <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_spare_price_path(spare_price),class: "btn btn-warning btn-sm",data:{toggle: "tooltip"}, title: "Edit" %>
+        <%= link_to '<i class="fa fa-trash"></i>'.html_safe, spare_price, method: :delete, data: { confirm: 'Are you sure?',toggle: "tooltip"},class: "btn btn-danger btn-sm", title: "Delete" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<br>
+
+<%= link_to 'New Spare Price', new_spare_price_path %>
+

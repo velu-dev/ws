@@ -1,0 +1,28 @@
+
+          $("#job_card_customer_contact_number").val("<%= @customer.contact_number%>");
+
+          $("#job_card_customer_email_id").val("<%= @customer.email_id%>");
+
+          $("#job_card_customer_address1").val("<%= @customer.address.address1%>");
+
+          $("#job_card_customer_country").val("<%= @customer.address.country%>");
+
+          $("#job_card_customer_city").val("<%= @customer.address.city%>");
+
+          $("#job_card_customer_state").val("<%= @customer.address.state%>");
+
+          $("#job_card_customer_pincode").val("<%= @customer.address.pincode%>");
+
+          $(".job_card_customer").attr('readonly', true);
+             $('#registration_number').html('<%= escape_javascript options_from_collection_for_select @customer_vehicles, "id", "registration_number", {id: "registration_number", include_blank: true} %>');
+
+             $('#registration_number').select2({
+               allowClear: true,
+               escapeMarkup: function (markup) { return markup; },
+               placeholder: "Registraion Number",
+               language: {
+                    noResults: function () {
+                         return "<span onclick='new_vehicle();' onmouseover='' style='color: #4925A1; cursor: pointer;'>New Vehicle</span> ";
+                    }
+               }
+          });

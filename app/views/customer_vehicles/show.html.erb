@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tenant:</strong>
+  <%= @customer_vehicle.tenant %>
+</p>
+
+<p>
+  <strong>Customer:</strong>
+  <%= @customer_vehicle.customer %>
+</p>
+
+<p>
+  <strong>Vehicle name:</strong>
+  <%= @customer_vehicle.vehicle_name %>
+</p>
+
+<p>
+  <strong>Brand:</strong>
+  <%= @customer_vehicle.brand %>
+</p>
+
+<p>
+  <strong>Model:</strong>
+  <%= @customer_vehicle.model %>
+</p>
+
+<p>
+  <strong>Registration number:</strong>
+  <%= @customer_vehicle.registration_number %>
+</p>
+
+<p>
+  <strong>Vin or chassis number:</strong>
+  <%= @customer_vehicle.vin_or_chassis_number %>
+</p>
+
+<p>
+  <strong>Year of manufacture:</strong>
+  <%= @customer_vehicle.year_of_manufacture %>
+</p>
+
+<%= link_to 'Edit', edit_customer_vehicle_path(@customer_vehicle) %> |
+<%= link_to 'Back', customer_vehicles_path %>

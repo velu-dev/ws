@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+<div class="card-header">
+<h3>Units<%= link_to 'New Unit', new_unit_path, class: "btn btn-primary pull-right"%></h3>
+</div>
+<div class="card-block">
+<table id="unit_index" class="display nowrap table-bordered table-stripped" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <th>Unit short code</th>
+      <th>Unit name</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @units.each do |unit| %>
+      <tr>
+        <td><%= unit.unit_short_code %></td>
+        <td><%= unit.unit_name %></td>
+        <td><!--%= link_to '<i class="fa fa-eye"></i>'.html_safe, unit,class: "btn btn-primary btn-sm",data:{toggle: "tooltip"}, title: "View" %-->
+        <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_unit_path(unit),class: "btn btn-warning btn-sm",data:{toggle: "tooltip"}, title: "Edit" %>
+        <%= link_to '<i class="fa fa-trash"></i>'.html_safe, unit, method: :delete, data: { confirm: 'Are you sure?',toggle: "tooltip"},class: "btn btn-danger btn-sm", title: "Delete" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<br>
+
+

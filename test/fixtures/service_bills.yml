@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  job_card: one
+  particular: one
+  service_name: MyString
+  description: MyString
+  user: one
+  cost: 1.5
+
+two:
+  job_card: two
+  particular: two
+  service_name: MyString
+  description: MyString
+  user: two
+  cost: 1.5

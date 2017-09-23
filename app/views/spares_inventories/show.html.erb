@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Spare:</strong>
+  <%= @spares_inventory.spare %>
+</p>
+
+<p>
+  <strong>Available quantity:</strong>
+  <%= @spares_inventory.available_quantity %>
+</p>
+
+<p>
+  <strong>Alert minimum quantity:</strong>
+  <%= @spares_inventory.alert_minimum_quantity %>
+</p>
+
+<%= link_to 'Edit', edit_spares_inventory_path(@spares_inventory) %> |
+<%= link_to 'Back', spares_inventories_path %>

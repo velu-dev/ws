@@ -1,0 +1,42 @@
+<%= form_with(model: spare_price, local: true) do |form| %>
+  <% if spare_price.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(spare_price.errors.count, "error") %> prohibited this spare_price from being saved:</h2>
+
+      <ul>
+      <% spare_price.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :spare_id %>
+    <%= form.text_field :spare_id, id: :spare_price_spare_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :actual_price_per_unit %>
+    <%= form.text_field :actual_price_per_unit, id: :spare_price_actual_price_per_unit %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sales_price_per_unit %>
+    <%= form.text_field :sales_price_per_unit, id: :spare_price_sales_price_per_unit %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sgst %>
+    <%= form.text_field :sgst, id: :spare_price_sgst %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cgst %>
+    <%= form.text_field :cgst, id: :spare_price_cgst %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

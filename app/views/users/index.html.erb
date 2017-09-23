@@ -1,0 +1,42 @@
+<div class="card-header">
+<h3>Users
+ <%= link_to 'New User', new_user_path, class: "btn btn-success pull-right"%>
+  
+</h3>
+</div>
+ <div class="card-block">
+<table id="user_index" class="display nowrap table-striped table-bordered" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Email</th>
+      <th>Username</th>
+      <th>Password</th>
+      <th>Mobile number</th>
+      <th>Address</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.first_name %></td>
+        <td><%= user.last_name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.username %></td>
+        <td><%= user.password %></td>
+        <td><%= user.mobile_number %></td>
+        <td><%= user.address.address1 %></td>
+        <td>
+        <!--%= link_to '<i class="fa fa-eye"></i>'.html_safe, user,class: "btn btn-primary btn-sm",data:{toggle: "tooltip"}, title: "View" %-->
+        <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_user_path(user),class: "btn btn-warning btn-sm",data:{toggle: "tooltip"}, title: "Edit" %>
+        <%= link_to '<i class="fa fa-trash"></i>'.html_safe, user, method: :delete, data: { confirm: 'Are you sure?',toggle: "tooltip"},class: "btn btn-danger btn-sm", title: "Delete" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<br>
+

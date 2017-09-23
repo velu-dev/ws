@@ -1,0 +1,54 @@
+<p id="notice"><%=(notice.present? ? notice.html_safe :  nil)%></p>
+<div class="card-header">
+<h1>Inventory
+<%= link_to 'Purchase', new_purchase_log_path, class: "btn btn-primary pull-right" %>
+
+</h1>
+</div>
+<div class="card-block">
+<table  id="spares_inventory_index" class="display nowrap table table-striped table-bordered" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <th>S.No</th>
+      <th>Spares Category</th>
+      <th>HSNC Code</th>
+      <th>Item Name</th>
+      <th>Part Number</th>
+      <th>Available <br>Quantity</th>
+      <th>Alert Min <br>Quantity</th>
+      <th>Latest Cost</th>
+    </tr>
+  </thead>
+<% s =  0%>
+  <tbody>
+    <% @spares_inventories.order(:updated_at => "desc").each do |spares_inventory| %>
+      <tr>
+        <td><%= s = s + 1 %></td>
+        <td><%= spares_inventory.spare.spares_category.category_name %></td>
+        <td><%= spares_inventory.spare.spares_category.hsnc_code %></td>
+        <td><%= spares_inventory.spare.item_name %></td>
+        <td><%= spares_inventory.spare.part_number %></td>
+        <td><%= spares_inventory.available_quantity %></td>
+        <%#if spares_inventory.alert_minimum_quantity.to_i > 5 %>
+        <td><%= spares_inventory.alert_minimum_quantity%></td>
+        <%#else%>
+        <!--td style="background-color: red;color: #000;"><%= spares_inventory.alert_minimum_quantity%></td>
+        <%#end%> -->
+        <td><%= spares_inventory.available_quantity.to_i == 0 ? "-" : PurchaseLog.where(spare_id: spares_inventory.spare.id).order(id: 'asc').last.total_cost%></td>
+        <!-- <td><!%= link_to '<i class="fa fa-eye"></i>'.html_safe, spares_inventory,class: "btn btn-primary btn-sm",data:{toggle: "tooltip"}, title: "View" %>
+        <!%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_spares_inventory_path(spares_inventory),class: "btn btn-warning btn-sm",data:{toggle: "tooltip"}, title: "Edit" %>
+        <!%= link_to '<i class="fa fa-trash"></i>'.html_safe,  spares_inventory, method: :delete, data: { confirm: 'Are you sure?',toggle: "tooltip"},class: "btn btn-danger btn-sm", title: "Delete" %></td> -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<br>
+
+
+<!-- <script type="text/javascript">
+      $(document).ready(function() {
+      $('#spares_inventory').DataTable();
+      } );
+
+    </script> -->

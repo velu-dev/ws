@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  spare: one
+  user: one
+  cost_per_unit: 1.5
+  quantity: 1
+  total_cost: 1.5
+  purchased_from: MyString
+  sgst: 1.5
+  cgst: 1.5
+
+two:
+  spare: two
+  user: two
+  cost_per_unit: 1.5
+  quantity: 1
+  total_cost: 1.5
+  purchased_from: MyString
+  sgst: 1.5
+  cgst: 1.5

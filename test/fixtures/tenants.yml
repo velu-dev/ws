@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tenant_login_name: MyString
+  display_name: MyString
+  subscription_status: false
+  logo: MyString
+  address: one
+
+two:
+  tenant_login_name: MyString
+  display_name: MyString
+  subscription_status: false
+  logo: MyString
+  address: two

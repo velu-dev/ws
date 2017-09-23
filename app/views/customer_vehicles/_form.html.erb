@@ -1,0 +1,86 @@
+   <!-- Selct2 CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" /> 
+    <!-- End Select2 -->
+<%= form_with(model: customer_vehicle, local: true, class: "form") do |form| %>
+<div class="form-body">
+  <% if customer_vehicle.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(customer_vehicle.errors.count, "error") %> prohibited this customer_vehicle from being saved:</h2>
+
+      <ul>
+      <% customer_vehicle.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="job_card_customer_name">Customer Name</label>
+                <%= select_tag "customer_vehicle[customer_id]", options_from_collection_for_select(Customer.all, "id", "customername"), { id: :job_card_customer_name, include_blank: true} %>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="job_card_vehicle_name">Vehicle Name</label>
+                <%= form.text_field :vehicle_name, id: :job_card_vehicle_name, required: :true,class:"form-control"%>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+          <div class="col-md-4">
+              <div class="form-group">
+                <label for="job_card_vehicle_brand">Brand</label>
+                <%= form.text_field :brand, id: :job_card_vehicle_brand,required: :true, class:"form-control"%>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="job_card_vehicle_model">Model</label>
+                <%= form.text_field :model, id: :job_card_vehicle_model,required: :true, class:"form-control"%>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="job_card_vehicle_registration_number">Registraion Number</label>
+                <%= form.text_field :registration_number, id: :job_card_vehicle_registration_number,required: :true, class:"form-control"%>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-8">
+              <div class="form-group">
+                <label for="job_card_vehicle_vin_or_chassis_number">VIN Number</label>
+                <%= form.text_field :vin_or_chassis_number, id: :job_card_vehicle_vin_or_chassis_number,required: :true, class:"form-control"%>
+              </div>
+            </div>
+            <div class="col-md-4"> 
+              <div class="form-group">
+                <label for="job_card_vehicle_year_of_manufacture">Year</label>
+                <%= form.text_field :year_of_manufacture, id: :job_card_vehicle_year_of_manufacture,required: :true, class:"form-control"%>
+              </div>
+            </div>
+          </div>
+                <div class="form-actions" style="float: right;">
+                <%= link_to customer_vehicles_path, type: 'button', class: "btn btn-warning mr-1" do %>
+                    <i class="fa fa-times" aria-hidden="true"></i> Cancel
+                <% end %>
+                <%= button_tag(type: "submit", class: "btn btn-primary") do %>
+                <i class='fa fa-check' aria-hidden='true'></i> Save
+                <% end %>
+              </div>
+      </div>
+<% end %>
+    <!--select2 Script -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+    <!-- End select2 Script -->
+
+
+<script type="text/javascript">
+$('#job_card_customer_name').select2({
+  allowClear: true,
+  escapeMarkup: function (markup) { return markup; },
+  placeholder: "Customer Name"
+});
+</script>

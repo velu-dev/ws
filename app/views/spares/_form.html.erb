@@ -1,0 +1,87 @@
+   <!-- Selct2 CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" /> 
+    <!-- End Select2 -->
+
+<%= form_with(model: spare, local: true, class: "form") do |form| %>
+<div class="form-body">
+  <% if spare.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(spare.errors.count, "error") %> prohibited this spare from being saved:</h2>
+
+      <ul>
+      <% spare.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="spare_spares_category_id">Spare Category</label>
+                <%= select_tag "spare[spares_category_id]", options_from_collection_for_select(SparesCategory.all, "id", "category_name"), {class: "form-controll", required: :true, id: :spare_spares_category_id, include_blank: true} %>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="spare_unit_id">Unit</label>
+                <%= select_tag "spare[unit_id]", options_from_collection_for_select(Unit.all, "id", "unit_name"), {class: "form-controll", required: :true, id: :spare_unit_id, include_blank: true} %>
+              </div>
+            </div>
+          </div>
+
+        <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="spare_part_number">Part Number</label>
+                <%= form.text_field :part_number, id: :spare_part_number, required: :true, class:"form-control"%>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="spare_item_name">Item Name</label>
+                    <%= form.text_field :item_name, id: :spare_item_name, required: :true, class:"form-control" %>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+                <label for="spare_description">Description</label>
+                <%= form.text_area(:description, rows: 2,required: :true, class: 'form-control', id: :spare_description) %>
+              </div>
+      <div class="form-actions" style="float: right;">
+                <a href="<%= customer_vehicles_path%>" type='button' class="btn btn-warning mr-1"><i class="fa fa-times" aria-hidden="true"></i> Cancel</a>
+                <%= button_tag(type: "submit", class: "btn btn-primary") do %>
+                <i class='fa fa-check' aria-hidden='true'></i> Save
+                <% end %>
+              </div>
+</div>
+<% end %>
+
+    <!--select2 Script -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+    <!-- End select2 Script -->
+    <script type="text/javascript">
+/*$(document).ready(function(){
+  $('#registration_number').next(".select2-container").next("select2-dropdown").next("select2-search").next("select2-search__field").css("text-transform","uppercase");
+  });*/
+$('#spare_spares_category_id').select2({
+  allowClear: true,
+  escapeMarkup: function (markup) { return markup; },
+  placeholder: "Spares Category"/*,
+  language: {
+    noResults: function () {
+      return "<span onclick='new_customer();' onmouseover='' style='color: #4925A1; cursor: pointer;'>New Customer</span>";
+    }
+  }*/
+});
+$('#spare_unit_id').select2({
+  allowClear: true,
+  escapeMarkup: function (markup) { return markup; },
+  placeholder: "Unit"/*,
+  language: {
+    noResults: function () {
+      return "<span onclick='new_customer();' onmouseover='' style='color: #4925A1; cursor: pointer;'>New Customer</span>";
+    }
+  }*/
+});
+</script>

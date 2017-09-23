@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Spare:</strong>
+  <%= @spare_price.spare %>
+</p>
+
+<p>
+  <strong>Actual price per unit:</strong>
+  <%= @spare_price.actual_price_per_unit %>
+</p>
+
+<p>
+  <strong>Sales price per unit:</strong>
+  <%= @spare_price.sales_price_per_unit %>
+</p>
+
+<p>
+  <strong>Sgst:</strong>
+  <%= @spare_price.sgst %>
+</p>
+
+<p>
+  <strong>Cgst:</strong>
+  <%= @spare_price.cgst %>
+</p>
+
+<%= link_to 'Edit', edit_spare_price_path(@spare_price) %> |
+<%= link_to 'Back', spare_prices_path %>

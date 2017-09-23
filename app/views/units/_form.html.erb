@@ -1,0 +1,36 @@
+<%= form_with(model: unit, local: true, class: "form") do |form| %>
+<div class="form-body">
+  <% if unit.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(unit.errors.count, "error") %> prohibited this unit from being saved:</h2>
+
+      <ul>
+      <% unit.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+        <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="unit_unit_name">Unit Name</label>
+                    <%= form.text_field :unit_name, id: :unit_unit_name, required: :true,  class: "form-control"%>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="unit_short_code">Unit Short Code</label>
+                <%= form.text_field :unit_short_code, id: :unit_unit_short_code, required: :true,  class: "form-control" %>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-actions" style="float: right;">
+             <a href="<%= spares_categories_path%>" type='button' class="btn btn-warning mr-1"><i class="fa fa-times" aria-hidden="true"></i> Cancel</a>
+                <%= button_tag(type: "submit", class: "btn btn-primary") do %>
+                <i class='fa fa-check' aria-hidden='true'></i> Save
+                <% end %>
+              </div>
+            </div>
+<% end %>

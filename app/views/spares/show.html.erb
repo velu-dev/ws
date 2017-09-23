@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Unit:</strong>
+  <%= @spare.unit %>
+</p>
+
+<p>
+  <strong>Spares category:</strong>
+  <%= @spare.spares_category %>
+</p>
+
+<p>
+  <strong>Part number:</strong>
+  <%= @spare.part_number %>
+</p>
+
+<p>
+  <strong>Item name:</strong>
+  <%= @spare.item_name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @spare.description %>
+</p>
+
+<%= link_to 'Edit', edit_spare_path(@spare) %> |
+<%= link_to 'Back', spares_path %>

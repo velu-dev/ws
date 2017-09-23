@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Spare:</strong>
+  <%= @purchase_log.spare %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @purchase_log.user %>
+</p>
+
+<p>
+  <strong>Cost per unit:</strong>
+  <%= @purchase_log.cost_per_unit %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @purchase_log.quantity %>
+</p>
+
+<p>
+  <strong>Total cost:</strong>
+  <%= @purchase_log.total_cost %>
+</p>
+
+<p>
+  <strong>Purchased from:</strong>
+  <%= @purchase_log.purchased_from %>
+</p>
+
+<p>
+  <strong>Sgst:</strong>
+  <%= @purchase_log.sgst %>
+</p>
+
+<p>
+  <strong>Cgst:</strong>
+  <%= @purchase_log.cgst %>
+</p>
+
+<%= link_to 'Edit', edit_purchase_log_path(@purchase_log) %> |
+<%= link_to 'Back', purchase_logs_path %>

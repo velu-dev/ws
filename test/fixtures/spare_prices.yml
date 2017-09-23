@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  spare: one
+  actual_price_per_unit: 1.5
+  sales_price_per_unit: 1.5
+  sgst: 1.5
+  cgst: 1.5
+
+two:
+  spare: two
+  actual_price_per_unit: 1.5
+  sales_price_per_unit: 1.5
+  sgst: 1.5
+  cgst: 1.5

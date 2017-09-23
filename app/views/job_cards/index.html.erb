@@ -1,0 +1,117 @@
+<div class="card-header">
+<h3>Job Card 
+<span class="job_card_status_filter" style="padding: 1%;font-size: medium;"><i class="fa fa-filter" aria-hidden="true"></i>&nbsp;&nbsp;
+  <a class="nav-link filter" onclick="cll('');">All</a>&nbsp;|
+  <a class="nav-link filter" onclick="cll('Service Pending');">Service Pending</a>&nbsp;|
+  <a class="nav-link filter" onclick="cll('In Progress');">In Progress</a>&nbsp;|
+  <a class="nav-link filter" onclick="cll('Delivery Pending');">Delivery Pending</a>&nbsp;|
+  <a class="nav-link filter" onclick="cll('Completed');">Completed</a>
+  </span>
+
+
+<!--%= link_to "New Job Card", new_job_card_path, class: "btn btn-success pull-right" %-->
+
+              <button id="new_job_card" class="btn btn-primary pull-right" onclick="click_fun();">New Job Card&nbsp;&nbsp;<i class="fa fa-plus"></i></button>
+</h3>
+
+<br>
+<div class="info">
+  <div class="rows">
+    <strong>
+      <p class="nav-link" style="border-radius: 83px;color:#990707;">.</p> <span class="info_text" style="color:#990707;">Service Pending</span>&nbsp;&nbsp;
+      <p class="nav-link" style="border-radius: 83px;color:#995e06;"></p><span class="info_text" style="color:#995e06;">In Progress</span>&nbsp;&nbsp;
+      <p class="nav-link" style="border-radius: 83px;color:#ef8a07;"></p><span class="info_text" style="color:#ef8a07;">delivery_pending</span>&nbsp;&nbsp;
+      <p class="nav-link" style="border-radius: 83px;color:#068740;"></p><span class="info_text" style="color:#068740;">completed</span>&nbsp;&nbsp;</strong>
+  </div>
+</div>
+  <style>
+    .info{
+      /*background-color: #1D2B36;*/
+      width: 100%;
+    }
+    .info_text{
+        padding: 20px;
+        margin-top: 15px;
+        font-size: 15px;
+    }
+
+  </style>
+</div>
+ <div class="card-block">
+
+<table id="jobcard_index" class="display nowrap table table-striped table-bordered" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+         <th>Job Card No</th>
+         <th>Date</th>
+          <th>Customer</th>
+        <th>Registration Number</th>
+        <th>VIN</th>
+    <!--     <th>Handover person</th> -->
+        <th>Service</th>
+        <!-- <th>Contact number</th> -->
+        <th>Jobcard status</th>
+        <th>Status</th>
+      <!--   <th>Fuel level</th>
+        <th>Km traveled</th> -->
+    </tr>
+  </thead>
+  <tbody>
+  <% @job_cards.each do |job_card| %>
+        <tr>
+          <td><%= job_card.job_card_number %></td>
+          <td><%= job_card.created_at.strftime("%d:%m:%Y")%></td>
+          <td><%= job_card.customer.customername %></td>
+          <td><%= job_card.customer_vehicle.registration_number %></td>
+          <td><%= job_card.customer_vehicle.vin_or_chassis_number %></td>
+        <!--   <td><%= job_card.handover_person %></td> -->
+          <td><%= job_card.particulars.first.particular_short_note %></td>
+          <!-- <td><%= job_card.contact_number %></td> -->
+          <td><%= job_card.jobcard_status.titleize %></td>
+          <%if job_card.jobcard_status == "service_pending" %>
+          <td><strong style="font-size: 70px;border-radius: 83px;color:#990707;">.</strong></td>
+          <%elsif job_card.jobcard_status == "in_progress"%>
+          <td><strong style="font-size: 70px;border-radius: 83px;color:#995e06;">.</strong></td>
+            <%elsif job_card.jobcard_status == "delivery_pending"%>
+          <td><strong style="font-size: 70px;border-radius: 83px;color:#990532;">.</strong></td>
+          <%elsif job_card.jobcard_status == "completed"%>
+          <td><strong style="font-size: 70px;border-radius: 83px;color:#068740;">.</strong></td>
+          <%end%>
+        <!--   <td><%= job_card.fuel_level %></td>
+          <td><%= job_card.km_traveled %></td> -->
+          <!-- <td><-%= link_to '', job_card,class: "fa fa-eye btn btn-primary btn-sm",data:{toggle: "tooltip"}, title: "View" %>
+          <-%= link_to '', edit_job_card_path(job_card),class: "fa fa-pencil btn btn-warning btn-sm",data:{toggle: "tooltip"}, title: "Edit" %>
+          <-%= link_to '', job_card, method: :delete, data: { confirm: 'Are you sure?',toggle: "tooltip"},class: "fa fa-trash btn btn-danger btn-sm", title: "Delete"  %-></td> -->
+        </tr>
+      <% end %>    
+  </tbody>
+</table>
+</div>
+  <script type="text/javascript">
+    function click_fun() {
+          window.location = "/new_job_card"
+     } 
+    </script>
+<script type="text/javascript">
+
+  $(document).ready(function() {
+        var oTable;
+      oTable = $('#jobcard_index').dataTable();
+
+/*      $('#company').change( function() { 
+            oTable.fnFilter( $(this).val(), 1 ); 
+       });
+      $('#cust').change( function() { 
+            oTable.fnFilter( $(this).val(), 2 ); 
+       });
+      $('#inv_num').keyup( function() { 
+            oTable.fnFilter( $(this).val(), 0 ); 
+       });
+*/
+});
+
+function cll(vl){
+  var oTable = $('#jobcard_index').dataTable();
+  oTable.fnFilter( vl, 4 ); 
+}
+</script>

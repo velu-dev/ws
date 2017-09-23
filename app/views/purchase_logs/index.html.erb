@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+<div class="card-header">
+<h1>Purchase Logs
+<%= link_to 'Purchase', new_purchase_log_path, class: "btn btn-primary pull-right" %>
+
+</h1>
+</div>
+ <div class="card-block">
+<table id="purchase_log_index" class=" display nowrap table-striped table-bordered" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <th>Spare</th>
+      <th>User</th>
+      <th>Cost per unit</th>
+      <th>Quantity</th> 
+      <th>Purchased from</th>
+      <th>Date</th>
+      <th>Sgst</th>
+      <th>Cgst</th>
+      <th>Total cost</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @purchase_logs.each do |purchase_log| %>
+      <tr>
+        <td><%= purchase_log.spare.item_name %></td>
+        <td><%= purchase_log.user.first_name %></td>
+        <td><%= purchase_log.cost_per_unit %></td>
+        <td><%= purchase_log.quantity %></td>
+        <td><%= purchase_log.purchased_from %></td>
+        <td><%= purchase_log.created_at.strftime("%d/%m/%Y") %></td>
+        <td><%= purchase_log.sgst %></td>
+        <td><%= purchase_log.cgst %></td>
+        <td><%= purchase_log.total_cost %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<br>
+
+
+<!-- <script type="text/javascript">
+      $(document).ready(function() {
+      $('#purchase_log').DataTable();
+      } );
+
+    </script> -->

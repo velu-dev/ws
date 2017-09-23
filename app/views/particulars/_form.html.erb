@@ -1,0 +1,47 @@
+<%= form_with(model: particular, local: true) do |form| %>
+  <% if particular.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(particular.errors.count, "error") %> prohibited this particular from being saved:</h2>
+
+      <ul>
+      <% particular.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :tenant_id %>
+    <%= form.text_field :tenant_id, id: :particular_tenant_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :job_card_id %>
+    <%= form.text_field :job_card_id, id: :particular_job_card_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id, id: :particular_user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :particular_short_note %>
+    <%= form.text_field :particular_short_note, id: :particular_particular_short_note %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description, id: :particular_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :completed_status %>
+    <%= form.check_box :completed_status, id: :particular_completed_status %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

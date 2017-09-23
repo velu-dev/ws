@@ -1,0 +1,35 @@
+<%= form_with(model: spares_category, local: true, class: "form") do |form| %>
+<div class="form-body">
+  <% if spares_category.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(spares_category.errors.count, "error") %> prohibited this spares_category from being saved:</h2>
+
+      <ul>
+      <% spares_category.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+        <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="spares_category_category_name">Category Name</label>
+                <%= form.text_field :category_name, id: :spares_category_category_name, required: :true, class: "form-control"%>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="spares_category_category_code">Category Code</label>
+                    <%= form.text_field :category_code, id: :spares_category_category_code, required: :true, class:"form-control" %>
+              </div>
+            </div>
+          </div>
+          <div class="form-actions" style="float: right;">
+             <a href="<%= spares_categories_path%>" type='button' class="btn btn-warning mr-1"><i class="fa fa-times" aria-hidden="true"></i> Cancel</a>
+                <%= button_tag(type: "submit", class: "btn btn-primary") do %>
+                <i class='fa fa-check' aria-hidden='true'></i> Save
+                <% end %>
+              </div>
+            </div>
+<% end %>

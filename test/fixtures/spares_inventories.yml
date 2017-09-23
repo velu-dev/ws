@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  spare: one
+  available_quantity: MyString
+  alert_minimum_quantity: MyString
+
+two:
+  spare: two
+  available_quantity: MyString
+  alert_minimum_quantity: MyString

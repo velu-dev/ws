@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tenant: one
+  job_card: one
+  user: one
+  particular_short_note: MyString
+  description: MyString
+  completed_status: false
+
+two:
+  tenant: two
+  job_card: two
+  user: two
+  particular_short_note: MyString
+  description: MyString
+  completed_status: false
